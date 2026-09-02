@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-image: url("../assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
+}
+
+.tentangsaya {
+  text-align: center;
+  gap: 100px;
+}
+
+.t1 {
+  display: inline-block;
+  text-align: center;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.t1:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transform: scale(1.03);
+  transition: 0.5s;
+}
+
+.pretasi {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.gambar1 {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(201, 189, 189, 0.15);
+}
+
+.card {
+  display: inline-block;
+  width: 300px;
+  margin: 10px 20px 30px 20px;
+  padding: 15px;
+  background-color: rgb(209, 172, 172);
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(66, 53, 53, 0.26);
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transform: scale(1.03);
+  transition: 0.5s;
+}
+
+/* Mengatur judul card */
+.card h3 {
+  margin-top: 10px;
+}
+
+/* Mengatur paragraf card */
+.card p {
+  font-size: 14px;
+}
+
+.links {
+  margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 20px;
+  margin-left: auto;
+}
+
+.links > li {
+  position: relative;
+}
+
+.links a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.links a:hover {
+  background: #333;
+}
+
+.dropdown-menu {
+  display: none;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  min-width: 180px;
+  background: #222;
+  list-style: none;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  background: #222;
+  border-bottom: 3px solid #8cd21a;
+}
+
+.logo {
+  width: 24px;
+  height: 35px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .links {
+    padding: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .links {
+    gap: 50px;
+    justify-content: flex-end;
+  }
+}
