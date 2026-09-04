@@ -51,3 +51,64 @@ window.addEventListener("resize", function () {
     });
   }
 });
+
+//gambar jalan//
+
+const slides = document.querySelectorAll(".slide");
+
+const tombolKiri = document.querySelector(".prev-button");
+const tombolKanan = document.querySelector(".next-button");
+
+let index = 1;
+
+
+function tampilkanSlide() {
+
+  slides.forEach((slide, i) => {
+
+    slide.classList.remove("prev", "active", "next");
+
+    if (i === index) {
+      slide.classList.add("active");
+    }
+
+    else if (i === (index - 1 + slides.length) % slides.length) {
+      slide.classList.add("prev");
+    }
+
+    else if (i === (index + 1) % slides.length) {
+      slide.classList.add("next");
+    }
+
+  });
+
+}
+
+
+tombolKanan.addEventListener("click", function () {
+
+  index++;
+
+  if (index >= slides.length) {
+    index = 0;
+  }
+
+  tampilkanSlide();
+
+});
+
+
+tombolKiri.addEventListener("click", function () {
+
+  index--;
+
+  if (index < 0) {
+    index = slides.length - 1;
+  }
+
+  tampilkanSlide();
+
+});
+
+
+tampilkanSlide();
