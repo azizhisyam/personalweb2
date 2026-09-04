@@ -1,21 +1,43 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta property="og:title" content="Website Hisyam"/>
+    <meta property="og:type" content="Website"/>
+    <meta property="og:image"
+     content="https://www.pexels.com/photo/vintage-moped-parked-by-charming-tunisian-doorway-39200123/"
+     />
+     <meta property="og:url" content="https://contoh.com"/>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/aziz.css" />
   </head>
   <body>
+
     <nav class="navbar">
-      <div>
+      <a href="#" class="brand">
         <img src="./assets/pasfoto.jpg" alt="Logo" class="logo" />
-      </div>
+      </a>
+      
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Buka menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <ul class="links">
         <li><a href="#">Home</a></li>
 
         <li class="dropdown">
-          <a href="#">Projects ▾</a>
+          <button class="dropdown-toggle" type="button">
+            Projects <span>▾</span>
+          </button>
 
           <ul class="dropdown-menu">
             <li><a href="#">Web Development</a></li>
@@ -59,6 +81,14 @@
         <h3>Juara 2 MAN IC</h3>
         <img src="./assets/juara2.jpg" class="gambar1" />
       </div>
+
+      <div class="card">
+        <h3>Juara 3 VIRETA</h3>
+        <img src="./assets/juara3.jpg" class="gambar1"/>
+      </div>
+      
     </section>
+
+    <script src="./aziz.js"></script>
   </body>
 </html>
