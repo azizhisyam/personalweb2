@@ -8,11 +8,7 @@ body {
   min-height: 100vh;
 }
 
-.menu {
-  display: flex;
-  gap: 40px;
-}
-
+/* ===== Section: Tentang Saya ===== */
 .tentangsaya {
   text-align: center;
   gap: 100px;
@@ -37,6 +33,7 @@ body {
   transition: 0.5s;
 }
 
+/* ===== Section: Prestasi ===== */
 .pretasi {
   text-align: center;
   margin-top: 50px;
@@ -44,9 +41,8 @@ body {
 
 .gambar1 {
   width: 100%;
-  border-radius: 10px;
-  margin-top: 10px;
   border-radius: 12px;
+  margin-top: 10px;
   box-shadow: 0 8px 20px rgba(201, 189, 189, 0.15);
 }
 
@@ -55,9 +51,12 @@ body {
   width: 300px;
   margin: 10px 20px 30px 20px;
   padding: 15px;
-  background-color: rgb(209, 172, 172);
   border-radius: 30px;
-  box-shadow: 0 8px 20px rgba(66, 53, 53, 0.26);
+  background: rgba(164, 21, 21, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(165, 4, 4, 0.25);
+  box-shadow: 0 8px 32px rgba(174, 21, 21, 0.15);
 }
 
 .card:hover {
@@ -66,77 +65,210 @@ body {
   transition: 0.5s;
 }
 
-/* Mengatur judul card */
 .card h3 {
   margin-top: 10px;
 }
 
-/* Mengatur paragraf card */
 .card p {
   font-size: 14px;
 }
 
-.links {
-  margin: 0;
+/* ===== Navbar ===== */
+.navbar {
+  position: relative;
   display: flex;
-  list-style: none;
-  padding: 20px;
-  margin-left: auto;
+  align-items: center;
+  min-height: 70px;
+  padding: 0 30px;
+  background: #222;
+  border-bottom: 3px solid #8cd21a;
+  z-index: 1000;
 }
 
+.logo {
+  display: block;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 0;
+  margin: 0 0 0 auto;
+  list-style: none;
+  z-index: 1000;
+}
+
+/* PENTING: relative, bukan absolute — ini yang bikin toggle "loncat" ke kanan */
 .links > li {
   position: relative;
 }
 
-.links a {
+.links a,
+.dropdown-toggle {
   display: block;
-  padding: 15px 20px;
+  padding: 15px 10px;
   color: white;
+  font: inherit;
   text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.links a:hover {
-  background: #333;
+.links a:hover,
+.dropdown-toggle:hover {
+  color: #8cd21a;
 }
 
+/* Dropdown */
 .dropdown-menu {
-  display: none;
-
   position: absolute;
   top: 100%;
   left: 0;
-
-  min-width: 180px;
-  background: #222;
+  display: none;
+  min-width: 200px;
+  padding: 8px 0;
+  margin: 0;
   list-style: none;
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  padding-left: 30px;
   background: #222;
-  border-bottom: 3px solid #8cd21a;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
-.logo {
-  width: 24px;
-  height: 35px;
-  border-radius: 20px;
+.dropdown-menu a {
+  padding: 12px 18px;
+  white-space: nowrap;
 }
 
-@media (max-width: 768px) {
-  .links {
-    padding: 0px;
+.dropdown-menu a:hover {
+  color: white;
+  background: #333;
+}
+
+/* Dropdown desktop */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
   }
 }
 
-@media (min-width: 768px) {
+/* Tombol hamburger */
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  margin: 5px 0;
+  background: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+/* ===== Tampilan mobile ===== */
+@media (max-width: 768px) {
+  .navbar {
+    min-height: 64px;
+    padding: 0 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
   .links {
-    gap: 50px;
-    justify-content: flex-end;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 0;
+    margin: 0;
+    background: #222;
+    border-bottom: 3px solid #8cd21a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .links.active {
+    display: flex;
+  }
+
+  .links a,
+  .dropdown-toggle {
+    width: 100%;
+    padding: 15px 20px;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    padding: 0;
+    background: #181818;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu a {
+    padding-left: 40px;
+  }
+
+  /* Animasi hamburger */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .tentangsaya {
+    padding: 20px;
+  }
+
+  .t1 {
+    display: block;
+    padding: 30px 20px;
+    margin: 20px 0;
+  }
+
+  .card {
+    display: block;
+    width: auto;
+    max-width: 300px;
+    margin: 20px auto;
+    box-sizing: border-box;
   }
 }
